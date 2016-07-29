@@ -16,7 +16,7 @@ var orm = {
         });
     },
     updateOne: function(tableInput, colName, req, cb){
-        var queryString = 'UPDATE ' + tableInput+ ' SET ' + colName + ' = TRUE WHERE id = ?';
+        var queryString = 'UPDATE ' + tableInput + ' SET ' + colName + '= 1 WHERE id=?';
 
         connection.query(queryString, req, function(err, result) {
             cb(result);

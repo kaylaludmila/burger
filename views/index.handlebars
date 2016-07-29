@@ -1,31 +1,48 @@
 <div class = "container">
   <div class = "row">
-      <div class = "col-md-4">
+      <div class = "col-md-8">
         <h1>EAT DA BURGER</h1>
 
           <ul>
             {{#each burgers}}
+            {{#unless this.devoured}}
               <li>
                 <p>
-                  {{this.id}}. {{this.burger_name}}
-                  <form action="/burger/update/?_method=PUT" method="POST">
-                    <input type="hidden" name="condition" value="{{condition.id}}">
-                    <button  class="btn btn-default" type="submit">Eat Burger!</button>
+                  {{this.burger_name}}
+                  <form action="/burger/update/{{this.id}}?_method=PUT" method="POST">
+                    <button  class="btn btn-default" type="submit" >Eat Burger!</button>
                   </form>
                 </p>
               </li>
+              {{/unless}}
             {{/each}}
           </ul>
         </div>
-      
-      <div class = "col-md-4"> 
+
+        <div class = "col-md-4">
+        <h1>YOU ATE DA BURGER</h1>
+
+          <ul>
+            {{#each burgers}}
+            {{#if this.devoured}}
+              <li>
+                <p>
+                {{this.burger_name}}
+                </p>
+              </li>
+              {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+    <div class = "row">
+      <div class = "col-md-6"> 
         <h2>Let's Make More Burgers</h2>
-            <form method="POST" action="/burger/create" class="button-size">
+            <form method="POST" action="/burger/create/" class="button-size">
             	<textarea type="text" name="newBurger"></textarea>
             	<button type="submit">Burger Completed!</button>
             </form>
       </div>
     </div>
 </div>
-
-<button type="button" class="btn btn-primary">Primary</button>
