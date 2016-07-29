@@ -12,7 +12,7 @@ var eat = {
 		});
 	},
 	updateOne: function(req, cb) {
-		orm.update('burgers','devoured', req , function(result){
+		orm.updateOne('burgers','devoured', req, function(result){
 			cb(result);
 		});
 	},

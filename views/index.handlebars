@@ -1,11 +1,31 @@
-<h1>EAT DA BURGER</h1>
+<div class = "container">
+  <div class = "row">
+      <div class = "col-md-4">
+        <h1>EAT DA BURGER</h1>
 
-<ul>
-  {{#each burgers}}
-    <li>
-      <p>
-        {{this.id}}. {{this.burger_name}}
-      </p>
-    </li>
-  {{/each}}
-</ul>
+          <ul>
+            {{#each burgers}}
+              <li>
+                <p>
+                  {{this.id}}. {{this.burger_name}}
+                  <form action="/burger/update/?_method=PUT" method="POST">
+                    <input type="hidden" name="condition" value="{{condition.id}}">
+                    <button  class="btn btn-default" type="submit">Eat Burger!</button>
+                  </form>
+                </p>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      
+      <div class = "col-md-4"> 
+        <h2>Let's Make More Burgers</h2>
+            <form method="POST" action="/burger/create" class="button-size">
+            	<textarea type="text" name="newBurger"></textarea>
+            	<button type="submit">Burger Completed!</button>
+            </form>
+      </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary">Primary</button>

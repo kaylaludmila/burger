@@ -16,28 +16,22 @@ router.get('/burger', function(req,res) {
 	});
 });
 
-// router.post('/cats/create', function(req,res) {
-// 	cat.create(['name', 'sleepy'], [req.body.name, req.body.sleepy], function(data){
-// 		res.redirect('/cats')
-// 	});
-// });
+router.post('/burger/create', function(req,res) {
+	var newBurger = req.body.newBurger;
+	eat.insertOne([newBurger], function(data){
+		res.redirect('/burger')
+	});
+});
 
-// router.put('/cats/update/:id', function(req,res) {
-// 	var condition = 'id = ' + req.params.id;
+router.put('/burger/update', function(req,res) {
+	var condition = req.params.id;
 
-// 	console.log('condition', condition);
+	console.log(condition);
 
-// 	cat.update({'sleepy' : req.body.sleepy}, condition, function(data){
-// 		res.redirect('/cats');
-// 	});
-// });
+	eat.updateOne([condition], function(data){
+		res.redirect('/burger');
+	});
+});
 
-// router.delete('/cats/delete/:id', function(req,res) {
-// 	var condition = 'id = ' + req.params.id;
-
-// 	cat.delete(condition, function(data){
-// 		res.redirect('/cats');
-// 	});
-// });
 
 module.exports = router;
