@@ -10,8 +10,6 @@ function sqlObject(ob){
   return arr.toString();
 }
 
-
-
 var orm = {
     selectAll: function(tableInput, cb) {
         var queryString = 'SELECT * FROM ' + tableInput + ';';

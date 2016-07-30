@@ -17,13 +17,6 @@ updateOne: function(objColVals, condition, cb) {
 			cb(result);
 		});
 	}
-
-	// updateOne: function(req, cb) {
-	// 	orm.updateOne('burgers','devoured', req, function(result){
-	// 		cb(result);
-	// 	});
-	// },
-
 };
 
 module.exports = eat;

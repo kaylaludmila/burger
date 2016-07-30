@@ -9,7 +9,7 @@
                 <p>
                   {{this.burger_name}}
                     <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
-                    <input type ="hidden" name="devoured" value="false">
+                    <input type ="hidden" name="devoured" value="true">
                     <button class="btn btn-success" type="submit">Eat Me!</button>
                     </form>
                 </p>

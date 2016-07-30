@@ -26,20 +26,10 @@ router.post('/burger/create', function(req,res) {
 
 router.put('/burger/update/:id', function(req,res) {
 	var condition = 'id = ' + req.params.id;
-	eat.updateOne({'devoured' : req.body.devoured }, condition, function(){
+	eat.updateOne({devoured : req.body.devoured }, condition, function(){
 		res.redirect('/burger');
 	});
 });
-
-// router.put('/burger/update/:id', function(req,res) {
-// 	var condition = 'id = ' + req.params.id;
-
-// 	console.log(condition);
-
-// 	eat.updateOne([condition], function(data){
-// 		res.redirect('/burger');
-// 	});
-// });
 
 
 module.exports = router;
