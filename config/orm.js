@@ -1,5 +1,17 @@
 var connection = require('./connection.js');
 
+function sqlObject(ob){
+  var arr = [];
+
+  for (var key in ob) {
+    arr.push(key + '=' + ob[key]);
+  }
+
+  return arr.toString();
+}
+
+
+
 var orm = {
     selectAll: function(tableInput, cb) {
         var queryString = 'SELECT * FROM ' + tableInput + ';';
@@ -15,10 +27,10 @@ var orm = {
             cb(result);
         });
     },
-    updateOne: function(tableInput, colName, req, cb){
-        var queryString = 'UPDATE ' + tableInput + ' SET ' + colName + '= 1 WHERE id=?';
+    updateOne: function(tableInput, objColVals, condition, cb){
+        var queryString = 'UPDATE ' + tableInput + ' SET ' + sqlObject(objColVals) + 'WHERE' + condition;
 
-        connection.query(queryString, req, function(err, result) {
+        connection.query(queryString, function(err, result) {
             cb(result);
         });
     },

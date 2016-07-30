@@ -11,11 +11,21 @@ var eat = {
 			cb(result);
 		});
 	},
-	updateOne: function(req, cb) {
-		orm.updateOne('burgers','devoured', req, function(result){
+
+updateOne: function(objColVals, condition, cb) {
+		orm.updateOne('burgers', objColVals, condition, function(result){
 			cb(result);
 		});
-	},
+	}
+
+	// updateOne: function(req, cb) {
+	// 	orm.updateOne('burgers','devoured', req, function(result){
+	// 		cb(result);
+	// 	});
+	// },
+
 };
 
 module.exports = eat;
+
+
