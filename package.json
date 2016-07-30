@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/kaylaludmila/burger/issues"
   },
+  "engines":{
+    "node": "4.4.7"
+  },
   "homepage": "https://github.com/kaylaludmila/burger#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
