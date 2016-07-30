@@ -1,5 +1,5 @@
 
-/ var mysql = require('mysql');
+var mysql = require('mysql');
 
 var source = {
 
@@ -20,6 +20,17 @@ var source = {
 }
 
 var connection = mysql.createConnection(source.jawsDB);
+ connection.connect(function(err) {
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+    console.log('connected as id ' + connection.threadId);
+});
+
+
+// connection.connect();
+module.exports = connection;
 
 
 
@@ -72,9 +83,6 @@ var connection = mysql.createConnection(source.jawsDB);
 //     }
 //     console.log('connected as id ' + connection.threadId);
 // });
-
-connection.connect();
-module.exports = connection;
 
 
 
