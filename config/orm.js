@@ -22,14 +22,13 @@ var orm = {
     },
     insertOne: function(tableInput, colName, req, cb){
         var queryString = 'INSERT INTO ' + tableInput + ' (' + colName + ') VALUES (?)';
-
         connection.query(queryString, req, function(err, result) {
             cb(result);
         });
     },
     updateOne: function(tableInput, objColVals, condition, cb){
-        var queryString = 'UPDATE ' + tableInput + ' SET ' + sqlObject(objColVals) + 'WHERE' + condition;
-
+        var queryString = 'UPDATE ' + tableInput + ' SET ' + sqlObject(objColVals) + ' WHERE ' + condition;
+        console.log("QUERY STRING == " + queryString);
         connection.query(queryString, function(err, result) {
             cb(result);
         });
